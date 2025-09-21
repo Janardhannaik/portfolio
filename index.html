@@ -1,308 +1,2234 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <title>JANARDHAN NAIK</title>
-</head>
-<body>
-    <nav id="desktop-nav">
-        <div class="logo"  data-aos="fade-up"   data-aos-duration="1000">Janardhan Naik</div>
-        <div class="nav"  data-aos="fade-up"   data-aos-duration="1000">
-            <ul class="nav-links">
-                <li><a href="#about"> About</a></li>
-                <li><a href="#skill"> Skill's</a></li>
-                <li><a href="#projects"> Projects</a></li>
-                <li><a href="#contact"> contact</a></li>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JANARDHAN NAIK - Full Stack Developer</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      body {
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+          color: #ffffff;
+          line-height: 1.6;
+          overflow-x: hidden;
+          position: relative;
+      }
+
+      /* Animated background particles */
+      body::before {
+          content: '';
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image:
+              radial-gradient(2px 2px at 20px 30px, rgba(102, 126, 234, 0.3), transparent),
+              radial-gradient(2px 2px at 40px 70px, rgba(118, 75, 162, 0.3), transparent),
+              radial-gradient(1px 1px at 90px 40px, rgba(102, 126, 234, 0.2), transparent),
+              radial-gradient(1px 1px at 130px 80px, rgba(118, 75, 162, 0.2), transparent);
+          background-size: 200px 100px;
+          animation: sparkle 8s linear infinite;
+          pointer-events: none;
+          z-index: 1;
+      }
+
+      @keyframes sparkle {
+          0%, 100% { opacity: 0.5; transform: translateY(0px) rotate(0deg); }
+          50% { opacity: 1; transform: translateY(-10px) rotate(180deg); }
+      }
+
+      .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+          position: relative;
+          z-index: 2;
+      }
+
+      /* Navigation */
+      nav {
+          position: fixed;
+          top: 0;
+          width: 100%;
+          background: rgba(10, 10, 10, 0.95);
+          backdrop-filter: blur(20px);
+          z-index: 1000;
+          padding: 15px 0;
+          transition: all 0.3s ease;
+          border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+          box-shadow: 0 4px 30px rgba(102, 126, 234, 0.1);
+      }
+
+      .nav-container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+      }
+
+      .logo {
+          font-size: 1.5rem;
+          font-weight: 700;
+          background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          text-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
+          position: relative;
+      }
+
+      .logo::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(45deg, #667eea, #764ba2);
+          opacity: 0.3;
+          filter: blur(10px);
+          z-index: -1;
+          border-radius: 10px;
+      }
+
+      .nav-links {
+          display: flex;
+          list-style: none;
+          gap: 30px;
+      }
+
+      .nav-links a {
+          color: #ffffff;
+          text-decoration: none;
+          font-weight: 500;
+          transition: all 0.3s ease;
+          position: relative;
+      }
+
+      .nav-links a:hover {
+          color: #667eea;
+      }
+
+      .redirect-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(90deg, #00c9ff, #92fe9d);
+            color: #0f2027;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(0, 201, 255, 0.3);
+        }
+        
+        .redirect-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 201, 255, 0.5);
+        }
+
+
+      .nav-links a::after {
+          content: '';
+          position: absolute;
+          bottom: -5px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: linear-gradient(45deg, #667eea, #764ba2);
+          transition: width 0.3s ease;
+          box-shadow: 0 0 10px rgba(102, 126, 234, 0.6);
+      }
+
+      .nav-links a:hover::after {
+          width: 100%;
+      }
+
+      /* Hero Section */
+      .hero {
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          position: relative;
+          padding: 100px 20px 0;
+      }
+
+      .hero-content {
+          max-width: 800px;
+          animation: fadeInUp 1s ease-out;
+      }
+
+      .hero-avatar {
+          width: 200px;
+          height: 200px;
+          border-radius: 50%;
+          margin: 0 auto 30px;
+          background: linear-gradient(45deg, #667eea, #764ba2);
+          padding: 5px;
+          animation: float 3s ease-in-out infinite;
+          position: relative;
+          box-shadow:
+              0 0 60px rgba(102, 126, 234, 0.6),
+              0 0 120px rgba(118, 75, 162, 0.4),
+              inset 0 0 60px rgba(102, 126, 234, 0.2);
+      }
+
+      .hero-avatar::before {
+          content: '';
+          position: absolute;
+          top: -10px;
+          left: -10px;
+          right: -10px;
+          bottom: -10px;
+          background: linear-gradient(45deg, #667eea, #764ba2);
+          border-radius: 50%;
+          z-index: -1;
+          filter: blur(20px);
+          opacity: 0.7;
+          animation: pulse 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes pulse {
+          0% { transform: scale(0.9); opacity: 0.7; }
+          100% { transform: scale(1.1); opacity: 0.3; }
+      }
+
+      .hero-avatar img {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          object-fit: cover;
+      }
+
+      .hero-title {
+          font-size: clamp(2rem, 5vw, 4rem);
+          font-weight: 800;
+          margin-bottom: 20px;
+          background: linear-gradient(45deg, #ffffff 0%, #667eea 50%, #764ba2 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          text-shadow: 0 0 40px rgba(102, 126, 234, 0.5);
+          position: relative;
+      }
+
+      .hero-title::before {
+          content: attr(data-text);
+          position: absolute;
+          top: 0;
+          left: 0;
+          background: linear-gradient(45deg, #667eea, #764ba2);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          filter: blur(4px);
+          opacity: 0.5;
+          z-index: -1;
+      }
+
+      .hero-subtitle {
+          font-size: clamp(1.2rem, 3vw, 2rem);
+          color: #667eea;
+          margin-bottom: 30px;
+          font-weight: 600;
+      }
+
+      .hero-description {
+          font-size: 1.1rem;
+          color: #b8b8b8;
+          max-width: 600px;
+          margin: 0 auto 40px;
+          line-height: 1.8;
+      }
+
+      .hero-buttons {
+          display: flex;
+          gap: 20px;
+          justify-content: center;
+          flex-wrap: wrap;
+          margin-bottom: 40px;
+      }
+
+      .btn {
+          padding: 15px 30px;
+          border: none;
+          border-radius: 50px;
+          font-size: 1rem;
+          font-weight: 600;
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          transition: all 0.3s ease;
+          cursor: pointer;
+          position: relative;
+          overflow: hidden;
+      }
+
+      .btn-primary {
+          background: linear-gradient(45deg, #667eea, #764ba2);
+          color: white;
+          box-shadow:
+              0 4px 15px rgba(102, 126, 234, 0.4),
+              0 0 30px rgba(102, 126, 234, 0.2);
+          position: relative;
+          overflow: hidden;
+      }
+
+      .btn-primary::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+          transition: left 0.5s;
+      }
+
+      .btn-primary:hover::before {
+          left: 100%;
+      }
+
+      .btn-secondary {
+          background: transparent;
+          color: #667eea;
+          border: 2px solid #667eea;
+          box-shadow:
+              0 0 20px rgba(102, 126, 234, 0.3),
+              inset 0 0 20px rgba(102, 126, 234, 0.1);
+      }
+
+      .btn:hover {
+          transform: translateY(-3px);
+          box-shadow:
+              0 10px 30px rgba(102, 126, 234, 0.4),
+              0 0 60px rgba(102, 126, 234, 0.2);
+      }
+
+      .social-links {
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+      }
+
+      .social-link {
+          width: 50px;
+          height: 50px;
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #ffffff;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(102, 126, 234, 0.3);
+          box-shadow: 0 0 20px rgba(102, 126, 234, 0.2);
+      }
+
+      .social-link:hover {
+          background: linear-gradient(45deg, #667eea, #764ba2);
+          transform: translateY(-3px);
+          box-shadow:
+              0 0 30px rgba(102, 126, 234, 0.6),
+              0 10px 30px rgba(102, 126, 234, 0.3);
+      }
+
+      /* Section Styles */
+      .section {
+          padding: 100px 0;
+          position: relative;
+      }
+
+      .section-title {
+          text-align: center;
+          font-size: clamp(2rem, 4vw, 3rem);
+          font-weight: 800;
+          margin-bottom: 20px;
+          background: linear-gradient(45deg, #ffffff, #667eea);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          position: relative;
+          text-shadow: 0 0 30px rgba(102, 126, 234, 0.3);
+      }
+
+      .section-title::after {
+          content: '';
+          position: absolute;
+          bottom: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100px;
+          height: 3px;
+          background: linear-gradient(45deg, #667eea, #764ba2);
+          border-radius: 2px;
+          box-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
+      }
+
+      .section-subtitle {
+          text-align: center;
+          color: #b8b8b8;
+          font-size: 1.1rem;
+          margin-bottom: 60px;
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
+      }
+
+      /* Cards Grid */
+      .cards-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 30px;
+          margin-top: 60px;
+      }
+
+      .card {
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(20px);
+          border-radius: 20px;
+          padding: 40px 30px;
+          text-align: center;
+          transition: all 0.3s ease;
+          border: 1px solid rgba(102, 126, 234, 0.2);
+          position: relative;
+          overflow: hidden;
+          box-shadow:
+              0 8px 32px rgba(0, 0, 0, 0.3),
+              0 0 20px rgba(102, 126, 234, 0.1);
+      }
+
+      .card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.2), transparent);
+          transition: left 0.5s;
+      }
+
+      .card::after {
+          content: '';
+          position: absolute;
+          top: -2px;
+          left: -2px;
+          right: -2px;
+          bottom: -2px;
+          background: linear-gradient(45deg, #667eea, #764ba2);
+          border-radius: 22px;
+          z-index: -1;
+          filter: blur(6px);
+          opacity: 0;
+          transition: opacity 0.3s ease;
+      }
+
+      .card:hover::after {
+          opacity: 0.7;
+      }
+
+      .card:hover::before {
+          left: 100%;
+      }
+
+      .card:hover {
+          transform: translateY(-10px);
+          border-color: #667eea;
+          box-shadow:
+              0 20px 60px rgba(0, 0, 0, 0.4),
+              0 0 40px rgba(102, 126, 234, 0.3);
+      }
+
+      .card-icon {
+          width: 80px;
+          height: 80px;
+          background: linear-gradient(45deg, #667eea, #764ba2);
+          border-radius: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 auto 20px;
+          font-size: 2rem;
+          color: white;
+          position: relative;
+          box-shadow:
+              0 0 30px rgba(102, 126, 234, 0.5),
+              inset 0 0 30px rgba(255, 255, 255, 0.1);
+      }
+
+      .card-icon::before {
+          content: '';
+          position: absolute;
+          top: -5px;
+          left: -5px;
+          right: -5px;
+          bottom: -5px;
+          background: linear-gradient(45deg, #667eea, #764ba2);
+          border-radius: 25px;
+          z-index: -1;
+          filter: blur(10px);
+          opacity: 0.6;
+      }
+
+      .card-title {
+          font-size: 1.5rem;
+          font-weight: 700;
+          margin-bottom: 15px;
+          color: #ffffff;
+      }
+
+      .card-description {
+          color: #b8b8b8;
+          line-height: 1.6;
+      }
+
+      /* Timeline */
+      .timeline {
+          position: relative;
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 40px 0;
+      }
+
+      .timeline::before {
+          content: '';
+          position: absolute;
+          left: 50%;
+          top: 0;
+          bottom: 0;
+          width: 3px;
+          background: linear-gradient(180deg, #667eea, #764ba2);
+          transform: translateX(-50%);
+          box-shadow:
+              0 0 20px rgba(102, 126, 234, 0.8),
+              0 0 40px rgba(102, 126, 234, 0.5),
+              0 0 60px rgba(102, 126, 234, 0.3);
+          animation: glowPulse 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes glowPulse {
+          0% {
+              box-shadow:
+                  0 0 20px rgba(102, 126, 234, 0.8),
+                  0 0 40px rgba(102, 126, 234, 0.5),
+                  0 0 60px rgba(102, 126, 234, 0.3);
+          }
+          100% {
+              box-shadow:
+                  0 0 30px rgba(102, 126, 234, 1),
+                  0 0 60px rgba(102, 126, 234, 0.7),
+                  0 0 90px rgba(102, 126, 234, 0.5);
+          }
+      }
+
+      .timeline-item {
+          position: relative;
+          margin: 50px 0;
+          opacity: 0;
+          animation: slideInUp 0.6s ease forwards;
+      }
+
+      .timeline-item:nth-child(odd) {
+          text-align: right;
+          padding-right: calc(50% + 40px);
+      }
+
+      .timeline-item:nth-child(even) {
+          text-align: left;
+          padding-left: calc(50% + 40px);
+      }
+
+      .timeline-content {
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(20px);
+          padding: 30px;
+          border-radius: 15px;
+          border: 1px solid rgba(102, 126, 234, 0.2);
+          position: relative;
+          box-shadow:
+              0 8px 32px rgba(0, 0, 0, 0.3),
+              0 0 20px rgba(102, 126, 234, 0.1);
+      }
+
+      .timeline-content::before {
+          content: '';
+          position: absolute;
+          top: -2px;
+          left: -2px;
+          right: -2px;
+          bottom: -2px;
+          background: linear-gradient(45deg, #667eea, #764ba2);
+          border-radius: 17px;
+          z-index: -1;
+          filter: blur(6px);
+          opacity: 0;
+          transition: opacity 0.3s ease;
+      }
+
+      .timeline-item:hover .timeline-content::before {
+          opacity: 0.5;
+      }
+
+      .timeline-date {
+          color: #667eea;
+          font-weight: 600;
+          font-size: 0.9rem;
+          margin-bottom: 10px;
+      }
+
+      .timeline-title {
+          font-size: 1.3rem;
+          font-weight: 700;
+          color: #ffffff;
+          margin-bottom: 10px;
+      }
+
+      .timeline-description {
+          color: #b8b8b8;
+          line-height: 1.6;
+      }
+
+      .timeline-marker {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          width: 24px;
+          height: 24px;
+          background: linear-gradient(45deg, #667eea, #764ba2);
+          border-radius: 50%;
+          border: 4px solid #0a0a0a;
+          box-shadow:
+              0 0 30px rgba(102, 126, 234, 0.8),
+              0 0 60px rgba(102, 126, 234, 0.5),
+              inset 0 0 20px rgba(255, 255, 255, 0.2);
+          z-index: 10;
+          animation: markerPulse 2s ease-in-out infinite;
+      }
+
+      @keyframes markerPulse {
+          0%, 100% {
+              transform: translate(-50%, -50%) scale(1);
+              box-shadow:
+                  0 0 30px rgba(102, 126, 234, 0.8),
+                  0 0 60px rgba(102, 126, 234, 0.5),
+                  inset 0 0 20px rgba(255, 255, 255, 0.2);
+          }
+          50% {
+              transform: translate(-50%, -50%) scale(1.2);
+              box-shadow:
+                  0 0 40px rgba(102, 126, 234, 1),
+                  0 0 80px rgba(102, 126, 234, 0.7),
+                  inset 0 0 30px rgba(255, 255, 255, 0.3);
+          }
+      }
+
+      /* Projects Grid */
+      .projects-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+          gap: 30px;
+          margin-top: 60px;
+      }
+
+      .project-card {
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(20px);
+          border-radius: 20px;
+          overflow: hidden;
+          transition: all 0.3s ease;
+          border: 1px solid rgba(102, 126, 234, 0.2);
+          position: relative;
+          box-shadow:
+              0 8px 32px rgba(0, 0, 0, 0.3),
+              0 0 20px rgba(102, 126, 234, 0.1);
+      }
+
+      .project-card::before {
+          content: '';
+          position: absolute;
+          top: -2px;
+          left: -2px;
+          right: -2px;
+          bottom: -2px;
+          background: linear-gradient(45deg, #667eea, #764ba2);
+          border-radius: 22px;
+          z-index: -1;
+          filter: blur(8px);
+          opacity: 0;
+          transition: opacity 0.3s ease;
+      }
+
+      .project-card:hover::before {
+          opacity: 0.6;
+      }
+
+      .project-card:hover {
+          transform: translateY(-10px);
+          box-shadow:
+              0 20px 60px rgba(0, 0, 0, 0.4),
+              0 0 40px rgba(102, 126, 234, 0.3);
+      }
+          border-radius: 20px;
+          overflow: hidden;
+          transition: all 0.3s ease;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .project-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+      }
+
+      .project-image {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+          background: linear-gradient(45deg, #667eea, #764ba2);
+      }
+
+      .project-content {
+          padding: 30px;
+      }
+
+      .project-title {
+          font-size: 1.3rem;
+          font-weight: 700;
+          margin-bottom: 10px;
+          color: #ffffff;
+      }
+
+      .project-description {
+          color: #b8b8b8;
+          margin-bottom: 20px;
+          line-height: 1.6;
+      }
+
+      .project-tech {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          margin-bottom: 20px;
+      }
+
+      .tech-tag {
+          background: rgba(102, 126, 234, 0.2);
+          color: #667eea;
+          padding: 5px 15px;
+          border-radius: 20px;
+          font-size: 0.9rem;
+          font-weight: 500;
+      }
+
+      .project-links {
+          display: flex;
+          gap: 15px;
+      }
+
+      .project-link {
+          padding: 10px 20px;
+          background: transparent;
+          border: 2px solid #667eea;
+          color: #667eea;
+          text-decoration: none;
+          border-radius: 25px;
+          font-weight: 500;
+          transition: all 0.3s ease;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+      }
+
+      .project-link:hover {
+          background: #667eea;
+          color: white;
+      }
+
+      /* Certificates Grid */
+      .certificates-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 30px;
+          margin-top: 60px;
+      }
+
+      .certificate-card {
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(10px);
+          border-radius: 20px;
+          padding: 30px;
+          text-align: center;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          transition: all 0.3s ease;
+      }
+
+      .certificate-card:hover {
+          transform: translateY(-10px);
+          border-color: #667eea;
+          box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+      }
+
+      .certificate-icon {
+          font-size: 3rem;
+          color: #667eea;
+          margin-bottom: 20px;
+      }
+
+      .certificate-title {
+          font-size: 1.3rem;
+          font-weight: 700;
+          color: #ffffff;
+          margin-bottom: 10px;
+      }
+
+      .certificate-issuer {
+          color: #667eea;
+          font-weight: 600;
+          margin-bottom: 10px;
+      }
+
+      .certificate-date {
+          color: #b8b8b8;
+          font-size: 0.9rem;
+      }
+
+      /* Contact Form */
+      .contact-form {
+          max-width: 600px;
+          margin: 0 auto;
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(10px);
+          border-radius: 20px;
+          padding: 40px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .form-group {
+          margin-bottom: 25px;
+      }
+
+      .form-group label {
+          display: block;
+          margin-bottom: 8px;
+          color: #ffffff;
+          font-weight: 500;
+      }
+
+      .form-group input,
+      .form-group textarea {
+          width: 100%;
+          padding: 15px;
+          background: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 10px;
+          color: #ffffff;
+          font-size: 1rem;
+          transition: all 0.3s ease;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+          outline: none;
+          border-color: #667eea;
+          background: rgba(255, 255, 255, 0.15);
+      }
+
+      .form-group textarea {
+          resize: vertical;
+          min-height: 120px;
+      }
+
+      .submit-btn {
+          width: 100%;
+          padding: 15px;
+          background: linear-gradient(45deg, #667eea, #764ba2);
+          border: none;
+          border-radius: 10px;
+          color: white;
+          font-size: 1.1rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+      }
+
+      .submit-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+      }
+
+      /* Contact Info */
+      .contact-info {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 30px;
+          margin-bottom: 50px;
+      }
+
+      .contact-item {
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(10px);
+          border-radius: 15px;
+          padding: 30px;
+          text-align: center;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          transition: all 0.3s ease;
+      }
+
+      .contact-item:hover {
+          border-color: #667eea;
+          transform: translateY(-5px);
+      }
+
+      .contact-icon {
+          font-size: 2.5rem;
+          color: #667eea;
+          margin-bottom: 15px;
+      }
+
+      .contact-label {
+          font-weight: 600;
+          color: #ffffff;
+          margin-bottom: 10px;
+      }
+
+      .contact-value {
+          color: #b8b8b8;
+      }
+
+      .contact-value a {
+          color: #667eea;
+          text-decoration: none;
+          transition: color 0.3s ease;
+      }
+
+      .contact-value a:hover {
+          color: #ffffff;
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+          from {
+              opacity: 0;
+              transform: translateY(30px);
+          }
+          to {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
+
+      @keyframes slideInUp {
+          from {
+              opacity: 0;
+              transform: translateY(50px);
+          }
+          to {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
+
+      @keyframes float {
+          0%, 100% {
+              transform: translateY(0px);
+          }
+          50% {
+              transform: translateY(-10px);
+          }
+      }
+
+      /* Mobile Responsiveness */
+      @media (max-width: 768px) {
+          .nav-links {
+              display: none;
+          }
+
+          .hero {
+              padding: 120px 20px 50px;
+          }
+
+          .hero-buttons {
+              flex-direction: column;
+              align-items: center;
+          }
+
+          .btn {
+              width: 200px;
+              justify-content: center;
+          }
+
+          .cards-grid,
+          .projects-grid,
+          .certificates-grid {
+              grid-template-columns: 1fr;
+          }
+
+          .contact-form {
+              margin: 0 20px;
+              padding: 30px 20px;
+          }
+
+          .timeline::before {
+              left: 20px;
+          }
+
+          .timeline-item {
+              padding-left: 60px !important;
+              padding-right: 0 !important;
+              text-align: left !important;
+          }
+
+          .timeline-marker {
+              left: 20px !important;
+          }
+      }
+
+      .mobile-menu-btn {
+          display: none;
+          background: none;
+          border: none;
+          color: white;
+          font-size: 1.5rem;
+          cursor: pointer;
+      }
+
+      @media (max-width: 768px) {
+          .mobile-menu-btn {
+              display: block;
+          }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-container">
+        <div class="logo">Janardhan Naik</div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#certificates">Certificates</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <div class="hero-avatar">
+          <img
+            src="img/profile.png"
+            alt="Janardhan Naik"
+            style="background: white"
+          />
+        </div>
+        <h1 class="hero-title">
+          Hey, I'm Janardhan ✨<br />A
+          <span style="color: #667eea">Software Developer</span>
+        </h1>
+        <p class="hero-description">
+          A fullstack developer with solid foundations in design, passionate
+          about crafting seamless user experiences. I thrive at the intersection
+          of creativity and functionality.
+        </p>
+        <div class="hero-buttons">
+          <!-- <a href="#contact" class="btn btn-primary">
+            <i class="fas fa-envelope"></i> Contact Me
+          </a> -->
+          <a href="mailto:naikjanardhan568@gmail.com" class="btn btn-primary">
+  <i class="fas fa-envelope"></i> Contact Me
+</a>
+
+
+          <a href="#projects" class="btn btn-secondary">
+            <i class="fas fa-eye"></i> View Projects
+          </a>
+        </div>
+        <div class="social-links">
+          <a href="https://github.com/Janardhannaik/" class="social-link" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://linkedin.com/" class="social-link" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=naikjanardhan568@gmail.com" 
+   class="social-link" 
+   target="_blank">
+  <i class="fas fa-envelope"></i>
+</a>
+
+
+          <a href="https://wa.me/8762729866" class="social-link" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Building Digital Experiences -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Building Digital Experiences</h2>
+        <p class="section-subtitle">
+          I specialize in creating stunning user interfaces and developing
+          high-quality applications that stand out.
+        </p>
+
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <h3 class="card-title">UI/UX Design</h3>
+            <p class="card-description">
+              I am a designer first, developer second. I help bring design
+              vision and modern interfaces.
+            </p>
+            <ul
+              style="
+                list-style: none;
+                padding: 0;
+                margin-top: 20px;
+                text-align: left;
+              "
+            >
+              <li style="margin: 10px 0; color: #b8b8b8">
+                <i
+                  class="fas fa-check"
+                  style="color: #667eea; margin-right: 10px"
+                ></i>
+                User-Centered Design
+              </li>
+              <li style="margin: 10px 0; color: #b8b8b8">
+                <i
+                  class="fas fa-check"
+                  style="color: #667eea; margin-right: 10px"
+                ></i>
+                Modern & Clean UI
+              </li>
+              <li style="margin: 10px 0; color: #b8b8b8">
+                <i
+                  class="fas fa-check"
+                  style="color: #667eea; margin-right: 10px"
+                ></i>
+                Responsive Layouts
+              </li>
+              <li style="margin: 10px 0; color: #b8b8b8">
+                <i
+                  class="fas fa-check"
+                  style="color: #667eea; margin-right: 10px"
+                ></i>
+                Wireframes & Prototypes
+              </li>
+              <li style="margin: 10px 0; color: #b8b8b8">
+                <i
+                  class="fas fa-check"
+                  style="color: #667eea; margin-right: 10px"
+                ></i>
+                Visual Design
+              </li>
+              <li style="margin: 10px 0; color: #b8b8b8">
+                <i
+                  class="fas fa-check"
+                  style="color: #667eea; margin-right: 10px"
+                ></i>
+                UX Research
+              </li>
             </ul>
-        </div>
-    </nav>
-    <nav id="hamburger-nav">
-        <div class="logo"  data-aos="fade-up"   data-aos-duration="1000">Janardhan Naik</div>
-        <div class="hamburger-menu">
-            <div class="hamburger-icon" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
           </div>
-          <div class="menu-links"  data-aos="fade-up"   data-aos-duration="1000">
-            <li><a href="#about" onclick="toggleMenu()"> About</a></li>
-            <li><a href="#skill" onclick="toggleMenu()"> experince</a></li>
-            <li><a href="#projects" onclick="toggleMenu()"> projects</a></li>
-            <li><a href="#contact" onclick="toggleMenu()"> contact</a></li>
 
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3 class="card-title">Frontend Development</h3>
+            <p class="card-description">
+              Creating beautiful, interactive, and responsive user interfaces
+              using modern technologies.
+            </p>
+            <!-- <div style="margin-top: 20px">
+              <div style="margin-bottom: 15px">
+                <span
+                  style="color: #ffffff; font-weight: 600; margin-right: 10px"
+                  >HTML</span
+                >
+                <span style="color: #667eea">Experience</span>
+              </div>
+              <div style="margin-bottom: 15px">
+                <span
+                  style="color: #ffffff; font-weight: 600; margin-right: 10px"
+                  >CSS</span
+                >
+                <span style="color: #667eea">Experience</span>
+              </div>
+              <div style="margin-bottom: 15px">
+                <span
+                  style="color: #ffffff; font-weight: 600; margin-right: 10px"
+                  >JavaScript</span
+                >
+                <span style="color: #667eea">Intermediate</span>
+              </div>
+              <div style="margin-bottom: 15px">
+                <span
+                  style="color: #ffffff; font-weight: 600; margin-right: 10px"
+                  >React JS</span
+                >
+                <span style="color: #667eea">Experience</span>
+              </div>
+              <div style="margin-bottom: 15px">
+                <span
+                  style="color: #ffffff; font-weight: 600; margin-right: 10px"
+                  >Bootstrap</span
+                >
+                <span style="color: #667eea">Experience</span>
+              </div>
+              <div style="margin-bottom: 15px">
+                <span
+                  style="color: #ffffff; font-weight: 600; margin-right: 10px"
+                  >Tailwind CSS</span
+                >
+                <span style="color: #667eea">Skills</span>
+              </div>
+            </div> -->
+            <ul
+              style="
+                list-style: none;
+                padding: 0;
+                margin-top: 20px;
+                text-align: left;
+              "
+            >
+              <li style="margin: 10px 0; color: #b8b8b8">
+                <i
+                  class="fas fa-check"
+                  style="color: #667eea; margin-right: 10px"
+                ></i>
+                HTML & CSS
+              </li>
+              <li style="margin: 10px 0; color: #b8b8b8">
+                <i
+                  class="fas fa-check"
+                  style="color: #667eea; margin-right: 10px"
+                ></i>
+                JavaScript
+              </li>
+              <li style="margin: 10px 0; color: #b8b8b8">
+                <i
+                  class="fas fa-check"
+                  style="color: #667eea; margin-right: 10px"
+                ></i>
+                Tailwind CSS
+              </li>
+              <li style="margin: 10px 0; color: #b8b8b8">
+                <i
+                  class="fas fa-check"
+                  style="color: #667eea; margin-right: 10px"
+                ></i>
+                Cursor AI
+              </li>
+              <li style="margin: 10px 0; color: #b8b8b8">
+                <i
+                  class="fas fa-check"
+                  style="color: #667eea; margin-right: 10px"
+                ></i>
+                GitHub Copilot
+              </li>
+              <li style="margin: 10px 0; color: #b8b8b8">
+                <i
+                  class="fas fa-check"
+                  style="color: #667eea; margin-right: 10px"
+                ></i>
+                VScode / Github
+              </li>
+              <li style="margin: 10px 0; color: #b8b8b8">
+                <i
+                  class="fas fa-check"
+                  style="color: #667eea; margin-right: 10px"
+                ></i>
+                CMS(Wordpress, Wix)
+              </li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-server"></i>
+            </div>
+            <h3 class="card-title">Backend Development</h3>
+            <p class="card-description">
+              Building robust and scalable server-side applications with modern
+              backend technologies.
+            </p>
+            <!-- <div style="margin-top: 20px">
+              <div style="margin-bottom: 15px">
+                <span
+                  style="color: #ffffff; font-weight: 600; margin-right: 10px"
+                  >Node.js</span
+                >
+                <span style="color: #667eea">Intermediate</span>
+              </div>
+              <div style="margin-bottom: 15px">
+                <span
+                  style="color: #ffffff; font-weight: 600; margin-right: 10px"
+                  >Express.js</span
+                >
+                <span style="color: #667eea">Intermediate</span>
+              </div>
+              <div style="margin-bottom: 15px">
+                <span
+                  style="color: #ffffff; font-weight: 600; margin-right: 10px"
+                  >MongoDB</span
+                >
+                <span style="color: #667eea">Intermediate</span>
+              </div>
+              <div style="margin-bottom: 15px">
+                <span
+                  style="color: #ffffff; font-weight: 600; margin-right: 10px"
+                  >SQL</span
+                >
+                <span style="color: #667eea">Experience</span>
+              </div>
+              <div style="margin-bottom: 15px">
+                <span
+                  style="color: #ffffff; font-weight: 600; margin-right: 10px"
+                  >Git</span
+                >
+                <span style="color: #667eea">Experience</span>
+              </div>
+              <div style="margin-bottom: 15px">
+                <span
+                  style="color: #ffffff; font-weight: 600; margin-right: 10px"
+                  >JavaScript</span
+                >
+                <span style="color: #667eea">Intermediate</span>
+              </div>
+            </div> -->
+            <ul
+              style="
+                list-style: none;
+                padding: 0;
+                margin-top: 20px;
+                text-align: left;
+              "
+            >
+              <li style="margin: 10px 0; color: #b8b8b8">
+                <i
+                  class="fas fa-check"
+                  style="color: #667eea; margin-right: 10px"
+                ></i>
+                Node Js
+              </li>
+              <li style="margin: 10px 0; color: #b8b8b8">
+                <i
+                  class="fas fa-check"
+                  style="color: #667eea; margin-right: 10px"
+                ></i>
+                Express Js
+              </li>
+              <li style="margin: 10px 0; color: #b8b8b8">
+                <i
+                  class="fas fa-check"
+                  style="color: #667eea; margin-right: 10px"
+                ></i>
+                MongoDB
+              </li>
+              <li style="margin: 10px 0; color: #b8b8b8">
+                <i
+                  class="fas fa-check"
+                  style="color: #667eea; margin-right: 10px"
+                ></i>
+                SQL
+              </li>
+              <li style="margin: 10px 0; color: #b8b8b8">
+                <i
+                  class="fas fa-check"
+                  style="color: #667eea; margin-right: 10px"
+                ></i>
+                Python
+              </li>
+              <li style="margin: 10px 0; color: #b8b8b8">
+                <i
+                  class="fas fa-check"
+                  style="color: #667eea; margin-right: 10px"
+                ></i>
+                PHP
+              </li>
+              <li style="margin: 10px 0; color: #b8b8b8">
+                <i
+                  class="fas fa-check"
+                  style="color: #667eea; margin-right: 10px"
+                ></i>
+                REST APIs / Postman
+              </li>
+            </ul>
           </div>
         </div>
-        
-    </nav>
-    <section id="profile">
-        <div class="section_pic-container"  data-aos="fade-up"   data-aos-duration="1000">
-            <img src="img/profile.png" alt="janardhan naik profile">
-        </div>
-        <div class="section_text">
-            <p class="section_text_p1"  data-aos="fade-up"   data-aos-duration="1000">Hello I'am</p>
-            <h1 class="title"  data-aos="fade-up"   data-aos-duration="1000">Janardhan Naik</h1>
-            <p class="section_text_p2"  data-aos="fade-up"   data-aos-duration="1000">Frond-End Developer</p>
-            <div class="btn-container"  data-aos="fade-up"   data-aos-duration="1000">
-               
-                <button class="btn btn-color-2"  onclick="window.open('')">
-                    Download CV</button>
-                <button class="btn btn-color-1"  onclick="location.href='./contact'">
-                    Contact Info</button>
-            </div>
-            <div id="social-container"  data-aos="fade-up"   data-aos-duration="1000">
-                <img src="img/linkedin.png" alt="mylinkled in profile" class="icon" onclick="location.href='https://linkedin.com/'">
-                <img src="img/github-logo.png" alt="github in profile" class="icon" onclick="location.href='https://github.com/'">
-            </div>
-        </div>
-        
+      </div>
     </section>
-    <!-- about -->
-    <section id="about">
-        <p class="section_text_p1"  data-aos="fade-up"   data-aos-duration="1000">Get To Know More</p>
-        <h1 class="title" data-aos="fade-up"   data-aos-duration="1000">About Me</h1>
-        <div class="section-container">
-            <div class="section_pic-container"  data-aos="fade-up"   data-aos-duration="1000">
-            <img src="img/about.png" alt="profile pic"
-             class="about-pic"/>
-        </div>
-        <div class="about-details-container">
-            <div class="about-containers">
-                <div class="detailes-container"  data-aos="fade-up"   data-aos-duration="1000">
-                    <img src="img/quality.png" alt="expiernce" class="icon"  data-aos="fade-up"   data-aos-duration="1000"/>
-                    <h3  data-aos="fade-up"   data-aos-duration="1000">Experince</h3>
-                    <p  data-aos="fade-up"   data-aos-duration="1000">Fresher<br>Front-End Develper</p>
-                </div>
-                <div class="detailes-container"  data-aos="fade-up"   data-aos-duration="1000">
-                    <img src="img/education.png" alt="expiernce" class="icon"  data-aos="fade-up"   data-aos-duration="1000"/>
-                    <h3  data-aos="fade-up"   data-aos-duration="1000">Education</h3>
-                    <p  data-aos="fade-up"   data-aos-duration="1000">3 Year,s<br>Bachaleor Of Computer Application</p>
-                </div>
-                </div>
-                <div class="text-container">
-                    <p  data-aos="fade-up"   data-aos-duration="1000">Hello everyone, I am Janardhan Naik. I am currently studying 6th semester in Kle BCA Dharwad. I am interested in web development, both front end and back end. I am currently looking for job vacancy..</p>
-                </div>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+      <div class="container">
+        <h2 class="section-title">Experience</h2>
+        <p class="section-subtitle">
+          My journey from intern to full stack developer
+        </p>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">2024 - Present</div>
+              <div class="timeline-title">Freelancing Full Stack Developer</div>
+              <div class="timeline-description">
+                Working as a freelance full stack developer, delivering custom
+                web applications and solutions for various clients. Specializing
+                in modern web technologies and creating user-centric digital
+                experiences.
+              </div>
             </div>
+            <div class="timeline-marker"></div>
+          </div>
+
+          <!-- <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">2023 - 2024</div>
+              <div class="timeline-title">Full Stack Developer</div>
+              <div class="timeline-description">
+                Transitioned to full stack development, working on both frontend
+                and backend technologies. Developed complete web applications
+                using React, Node.js, and various databases.
+              </div>
+            </div>
+            <div class="timeline-marker"></div>
+          </div> -->
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">2024</div>
+              <div class="timeline-title">CODSOFT Intern</div>
+              <div class="timeline-description">
+                Started my professional journey as an intern at CODSOFT, where I
+                learned the fundamentals of web development and gained hands-on
+                experience with modern development practices.
+              </div>
+            </div>
+            <div class="timeline-marker"></div>
+          </div>
         </div>
-        <img src="img/arrow.png" alt="arrow" class="icon arrow"
-        onclick="location.href='#skill'"/>
+      </div>
     </section>
-    <!-- skills -->
-    <section id="skill">
-        <p class="section_text_p1"  data-aos="fade-up"   data-aos-duration="1000">Explore My</p>
-        <h1 class="title"  data-aos="fade-up"   data-aos-duration="1000">Skill's</h1>
-        <div class="skill-details-container"> 
-            <div class="about-containers">
-                <div class="detailes-container" data-aos="fade-up"   data-aos-duration="1000">
-                    <h2 class="skill-sub-title"  data-aos="fade-up"   data-aos-duration="1000">Frontend Develment</h2>
-                    <div class="article-container"  data-aos="fade-up"   data-aos-duration="1000">
-                        <article>
-                            <img src="img/check-mark.png" alt="check" class="icon"/>
-                        <div>
-                            <h3  data-aos="fade-up"   data-aos-duration="1000">HTML</h3>
-                            <p  data-aos="fade-up"   data-aos-duration="1000">Experince</p>
-                        </div>
-                        </article>
-                        <article  data-aos="fade-up"   data-aos-duration="1000">
-                            <img src="img/check-mark.png" alt="check" class="icon"/>
-                        <div>
-                            <h3  data-aos="fade-up"   data-aos-duration="1000">CSS</h3>
-                            <p  data-aos="fade-up"   data-aos-duration="1000">Experince</p>
-                        </div>
-                        </article>
-                        <article  data-aos="fade-up"   data-aos-duration="1000">
-                            <img src="img/check-mark.png" alt="check" class="icon"/>
-                        <div>
-                            <h3   data-aos="fade-up"   data-aos-duration="1000">JAVASCRIPT</h3>
-                            <p  data-aos="fade-up"   data-aos-duration="1000">Intermedia</p>
-                        </div>
-                        </article>
-                        <article  data-aos="fade-up"   data-aos-duration="1000">
-                            <img src="img/check-mark.png" alt="check" class="icon"/>
-                        <div>
-                            <h3  data-aos="fade-up"   data-aos-duration="1000">BOOTSRAP5</h3>
-                            <p   data-aos="fade-up"   data-aos-duration="1000"> Experince</p>
-                        </div>
-                        </article>
-                        <article  data-aos="fade-up"   data-aos-duration="1000">
-                            <img src="img/check-mark.png" alt="check" class="icon"/>
-                        <div>
-                            <h3  data-aos="fade-up"   data-aos-duration="1000">Tailwind CSS</h3>
-                            <p  data-aos="fade-up"   data-aos-duration="1000">Skill's</p>
-                        </div>
-                            
-                        </article>
 
+    <!-- Education Section -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Education</h2>
+        <p class="section-subtitle">
+          My educational background and qualifications
+        </p>
 
-                        <article  data-aos="fade-up"   data-aos-duration="1000">
-                            <img src="img/check-mark.png" alt="check" class="icon"/>
-                        <div>
-                            <h3  data-aos="fade-up"   data-aos-duration="1000">React JS</h3>
-                            <p  data-aos="fade-up"   data-aos-duration="1000">Experince</p>
-                        </div>
-                            
-                        </article>
-
-                    </div>
-                </div>
-                <!-- backend -->
-                <div class="detailes-container"  data-aos="fade-up"   data-aos-duration="1000">
-                    <h2 class="skill-sub-title"  data-aos="fade-up"   data-aos-duration="1000">Backend Develment</h2>
-                    <div class="article-container">
-                        <article  data-aos="fade-up"   data-aos-duration="1000">
-                            <img src="img/check-mark.png" alt="check" class="icon"/>
-                        <div>
-                            <h3  data-aos="fade-up"   data-aos-duration="1000">SQL</h3>
-                            <p  data-aos="fade-up"   data-aos-duration="1000"> Experince</p>
-                        </div>
-                        </article>
-                        <article  data-aos="fade-up"   data-aos-duration="1000">
-                            <img src="img/check-mark.png" alt="check" class="icon"/>
-                        <div>
-                            <h3  data-aos="fade-up"   data-aos-duration="1000">Node JS</h3>
-                            <p  data-aos="fade-up"   data-aos-duration="1000"> Intermedia</p>
-                        </div>
-                        </article>
-                        <article  data-aos="fade-up"   data-aos-duration="1000">
-                            <img src="img/check-mark.png" alt="check" class="icon"/>
-                        <div>
-                            <h3  data-aos="fade-up"   data-aos-duration="1000">Express JS</h3>
-                            <p  data-aos="fade-up"   data-aos-duration="1000">Intermedia</p>
-                        </div>
-                        </article>
-                        <article  data-aos="fade-up"   data-aos-duration="1000">
-                            <img src="img/check-mark.png" alt="check" class="icon"/>
-                        <div>
-                            <h3  data-aos="fade-up"   data-aos-duration="1000">Git</h3>
-                            <p  data-aos="fade-up"   data-aos-duration="1000">Experince</p>
-                        </div>
-                        </article>
-                       <article  data-aos="fade-up"   data-aos-duration="1000">
-                            <img src="img/check-mark.png" alt="check" class="icon"/>
-                        <div>
-                            <h3  data-aos="fade-up"   data-aos-duration="1000">MongoDB</h3>
-                            <p  data-aos="fade-up"   data-aos-duration="1000"> Intermedia</p>
-                        </div>
-                        </article>
-
-                        <article  data-aos="fade-up"   data-aos-duration="1000">
-                            <img src="img/check-mark.png" alt="check" class="icon"/>
-                        <div>
-                            <h3  data-aos="fade-up"   data-aos-duration="1000">JavaScript</h3>
-                            <p  data-aos="fade-up"   data-aos-duration="1000"> Intermedia</p>
-                        </div>
-                        </article>
-
-                       
-
-                    </div>
-                </div>
+        <div class="cards-grid" style="max-width: 800px; margin: 0 auto">
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-graduation-cap"></i>
             </div>
+            <h3 class="card-title">Bachelor of Computer Application</h3>
+            <div style="margin-top: 20px; text-align: left">
+              <div style="margin-bottom: 15px">
+                <span style="color: #667eea; font-weight: 600"
+                  >Institution:</span
+                >
+                <span style="color: #b8b8b8; margin-left: 10px"
+                  >KLE Dharwad</span
+                >
+              </div>
+              <div style="margin-bottom: 15px">
+                <span style="color: #667eea; font-weight: 600">Duration:</span>
+                <span style="color: #b8b8b8; margin-left: 10px">3 Years</span>
+              </div>
+              <div style="margin-bottom: 15px">
+                <span style="color: #667eea; font-weight: 600">Graduated</span>
+              </div>
+              <div style="margin-bottom: 15px">
+                <span style="color: #667eea; font-weight: 600">Focus:</span>
+                <span style="color: #b8b8b8; margin-left: 10px"
+                  >Computer Science & Applications</span
+                >
+              </div>
+            </div>
+          </div>
         </div>
-        <img src="img/arrow.png" alt="arrow" class="icon arrow"
-        onclick="location.href='#projects'"/>
+      </div>
     </section>
-    <!-- projects -->
-    <section id="projects">
-        <p class="section_text_p1"  data-aos="fade-up"   data-aos-duration="1000">Browse My Recent</p>
-        <h1 class="title"  data-aos="fade-up"   data-aos-duration="1000">Projects</h1>
-        <div class="skill-details-container">
-            <div class="about-containers">
-            <div class="detailes-container color-container">
-                <div class="article-container"  data-aos="fade-up"   data-aos-duration="1000">
-                    <img
-                    src="img/project1.jpg" alt="project1" class="project-img">
 
+    <!-- Freelancing Projects -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title">Freelancing Projects</h2>
+        <p class="section-subtitle">
+          Showcase of client projects delivered with precision and creativity
+        </p>
 
-                </div>
-                <h2 class="skill-sub-title project-title"  data-aos="fade-up"   data-aos-duration="1000">E-commerce  Website</h2>
-            <div class="btn-container"   data-aos="fade-up" >
-                <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/Janardhannaik/Online-Shopping-Swiffy'">
-                Git Hub</button>
-                <button class="btn btn-color-2 project-btn" onclick="location.href='https://janardhannaik.github.io/Online-Shopping-Swiffy/'">
-                    live Demo</button>
+        <div class="projects-grid">
+          <div class="project-card">
+            <img
+              src="img/Fresherday-2019-6-1-600x400.jpg"
+              alt="E-commerce Website"
+              class="project-image"
+              style="object-fit: cover"
+            />
+            <div class="project-content">
+              <h3 class="project-title">College Event Management System</h3>
+              <p class="project-description">
+                A MERN stack web app for college events. Users sign up, create
+                events, and browse listings. Authenticated users can book
+                tickets for events. It streamlines campus event discovery,
+                registration, and management, serving as a central platform for
+                student engagement.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">React JS</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">Node JS</span>
+                <span class="tech-tag">Express JS</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://github.com/Janardhannaik/College-Event-Management-System"
+                  class="project-link"
+                  target="_blank"
+                >
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+                <a
+                  href="https://github.com/Janardhannaik/College-Event-Management-System"
+                  class="project-link"
+                  target="_blank"
+                >
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
             </div>
-            </div>
-            <div class="detailes-container color-container">
-                <div class="article-container"  data-aos="fade-up"   data-aos-duration="1000">
-                    <img
-                    src="img/project2.jpg" alt="project1" class="project-img">
+          </div>
 
+          <div class="project-card">
+            <img
+              src="img/original-78f0f2908e06b86b85eefc36f90781b6.webp"
+              alt="Bike Rental Website"
+              class="project-image"
+              style="object-fit: cover"
+            />
+            <div class="project-content">
+              <h3 class="project-title">Online Blog Platform</h3>
+              <p class="project-description">
+                A full-featured blog platform built with the MERN stack. Users
+                can securely sign up, create, read, update, and delete (CRUD)
+                their own blog posts. It features a modern React interface, a
+                secure Node.js/Express API, and MongoDB for efficient data
+                storage, providing a seamless content sharing experience.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">React JS</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">Node JS</span>
+                <span class="tech-tag">Express JS</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://github.com/Janardhannaik/Quick-Blog-Website"
+                  class="project-link"
+                  target="_blank"
+                >
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+                <a
+                  href="https://github.com/Janardhannaik/Quick-Blog-Website"
+                  class="project-link"
+                  target="_blank"
+                >
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
 
-                </div>
-                <h2 class="skill-sub-title project-title"   data-aos="fade-up"   data-aos-duration="1000">Quiz App Website</h2>
-            <div class="btn-container"  data-aos="fade-up">
-                <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/Janardhannaik/quizz-App'">
-                Git Hub</button>
-                <button class="btn btn-color-2 project-btn" onclick="location.href='https://janardhannaik.github.io/quizz-App/'">
-                    live Demo</button>
+          <div class="project-card">
+            <img
+              src="img/Dyspatch-Best-Email-Template-Builders_-An-Expert-Breakdown.jpg"
+              alt="Bike Rental Website"
+              class="project-image"
+              style="object-fit: cover"
+            />
+            <!-- <div
+              class="project-image"
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(45deg, #667eea, #764ba2);
+              "
+            >
+              <i class="fas fa-store" style="font-size: 3rem; color: white"></i>
+            </div> -->
+            <div class="project-content">
+              <h3 class="project-title">Email Template Builder</h3>
+              <p class="project-description">
+                A free MERN stack email template builder. Choose from built-in
+                designs, easily customize them with a user-friendly editor, and
+                get feedback through a review system. The platform provides
+                clean, exportable HTML code for you to seamlessly implement your
+                final template in any email marketing service.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">Express</span>
+              </div>
+              <!-- <div class="project-links">
+                <a
+                  href="#"
+                  class="https://github.com/Janardhannaik/Email-builder-Template.git"
+                >
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+                <a
+                  href="#"
+                  class="https://email-builder-template-theta.vercel.app/"
+                >
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div> -->
+              <div class="project-links">
+                <a
+                  href="https://github.com/Janardhannaik/Email-builder-Template.git"
+                  class="project-link"
+                  target="_blank"
+                >
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+                <a
+                  href="https://email-builder-template-theta.vercel.app/"
+                  class="project-link"
+                  target="_blank"
+                >
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
             </div>
-            </div>
-            <div class="detailes-container color-container">
-                <div class="article-container"  data-aos="fade-up"   data-aos-duration="1000">
-                    <img
-                    src="img/project3.jpg" alt="project1" class="project-img">
+          </div>
 
-
-                </div>
-                <h2 class="skill-sub-title project-title"  data-aos="fade-up"   data-aos-duration="1000">Bike Rent Website</h2>
-            <div class="btn-container"  data-aos="fade-up" >
-                <button class="btn btn-color-2 profile-btn" onclick="location.href='https://github.com/Janardhannaik/Royal-Enfild-Rent-Bikes'">
-                Git Hub</button>
-                <button class="btn btn-color-2 profile-btn" onclick="location.href='https://janardhannaik.github.io/Royal-Enfild-Rent-Bikes/'" target="_blank">
-                    live Demo</button>
-            </div>
-            </div>
-            </div>
+          <!-- <div class="project-card">
+            <div
+              class="project-image"
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(45deg, #667eea, #764ba2);
+              "
+            >
+              <i
+                class="fas fa-graduation-cap"
+                style="font-size: 3rem; color: white"
+              ></i>
+            </div> -->
+          <!-- <div class="project-content">
+              <h3 class="project-title">Learning Management System</h3>
+              <p class="project-description">
+                Educational platform with course management, student tracking,
+                interactive features, and comprehensive learning tools.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">FastAPI</span>
+              </div>--->
+          <!-- <div class="project-links">
+                <a href="#" class="project-link">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="#" class="project-link">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
+            </div>  -->
+          <!-- </div> -->
         </div>
-        
-        <img src="img/arrow.png" alt="arrow" class="icon arrow"
-        onclick="location.href='#contact'"/>
+      </div>
     </section>
-    <!-- contact -->
-    <section id="contact">
-        <p class="section_text_p1"  data-aos="fade-up"   data-aos-duration="1000">Get in Touch</p>
-        <h1 class="title"  data-aos="fade-up"   data-aos-duration="1000">contact us</h1>
-        <div class="contact-info-upper-container">
-            <div class="contact-info-container"  data-aos="fade-up"   data-aos-duration="1000">
-                <img src="img/email.png" alt="emailicon" class="icon  contact-icon"/>
-                <p><a href="mailto:naikjanardhan@gmail.com"  data-aos="fade-up"   data-aos-duration="1000">naikjanardhan568@gmail.com</a></p>
-            </div>
-        
-      
-            <div class="contact-info-container"  data-aos="fade-up"   data-aos-duration="1000"> 
-                <img src="img/linkedin.png" alt="emailicon" class="icon  contact-icon"/>
-                <p><a href="https://www.linkedin.com">Linked in</a></p>
-            </div>
-            <div class="contact-info-container"  data-aos="fade-up"   data-aos-duration="1000">
-                <img src="img/whatsapp (1).png" alt="Whatsapp-icon" class="icon  contact-icon"/>
-                <p><a href="https://www.linkedin.com">Whatsapp</a></p>
-            </div>
-        </div>
-        </section>
-        <!-- footer -->
-        <footer>
-            <nav>
-                <div class="nav-links-container"  data-aos="fade-up"   data-aos-duration="1000">
-                            <ul class="nav-links"  data-aos="fade-up"   data-aos-duration="1000">
-                            <li><a href="#about"> About</a></li>
-                            <li><a href="#skill"> Skill's</a></li>
-                            <li><a href="#projects"> Projects</a></li>
-                            <li><a href="#contact"> contact</a></li>
-                        </ul>
-                    </div>
 
-                </div>
-            </nav>
-            <p  data-aos="fade-up"   data-aos-duration="1000">Copyright &#169; 2024 Janardhan Naik. All Right's Reserved.</p>
-        </footer>
+    <!-- Personal Projects -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Personal Projects</h2>
+        <p class="section-subtitle">
+          Creative experiments and passion projects that showcase my skills
+        </p>
+
+        <div class="projects-grid">
+          <div class="project-card">
+            <img
+              src="img/resize.jpg"
+              alt="Quiz App"
+              class="project-image"
+              style="object-fit: cover"
+            />
+            <div class="project-content">
+              <h3 class="project-title">
+                Data Analystics Tool For Small Enterprise
+              </h3>
+              <p class="project-description">
+                A high-performance MERN + Python platform for uploading and
+                instantly analyzing large datasets (5+ million records). It
+                automatically generates interactive dashboards, statistical
+                insights, and visual charts, with secure user profiles and full
+                upload history—delivering enterprise-grade analytics with a
+                sleek, modern interface.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">React JS</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">Node JS</span>
+                <span class="tech-tag">Python</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://github.com/Janardhannaik/Data-Analyst-Enterprise-System"
+                  class="project-link"
+                  target="_blank"
+                >
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+                <a
+                  href="https://github.com/Janardhannaik/Data-Analyst-Enterprise-System"
+                  class="project-link"
+                  target="_blank"
+                >
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <img
+              src="img/images.jpg"
+              alt="Quiz App"
+              class="project-image"
+              style="object-fit: cover"
+            />
+            <div class="project-content">
+              <h3 class="project-title">
+                AI-Powered Medical Instruction Simplifier
+              </h3>
+              <p class="project-description">
+                An AI-powered tool that simplifies complex medical instructions
+                into easy-to-understand language using advanced NLP. Built with
+                MERN stack and DeepSeek AI, it helps patients better understand
+                treatments, dosage, and care plans—improving adherence and
+                reducing errors. Secure, user-friendly, and accessible.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">Deepkseek</span>
+                <span class="tech-tag">OCR</span>
+              </div>
+              <!-- <div class="project-links">
+                <a
+                  href="#"
+                  class="https://github.com/Janardhannaik/medical-ai-simplifier"
+                >
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+                <a
+                  href="#"
+                  class="https://github.com/Janardhannaik/medical-ai-simplifier"
+                >
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div> -->
+              <div class="project-links">
+                <a
+                  href="https://github.com/Janardhannaik/medical-ai-simplifier"
+                  class="project-link"
+                  target="_blank"
+                >
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+                <a
+                  href="https://github.com/Janardhannaik/medical-ai-simplifier"
+                  class="project-link"
+                  target="_blank"
+                >
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+<!-- 
+          <div class="project-card">
+            <div
+              class="project-image"
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(45deg, #667eea, #764ba2);
+              "
+            >
+              <i class="fas fa-tasks" style="font-size: 3rem; color: white"></i>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Task Management App</h3>
+              <p class="project-description">
+                Comprehensive task management solution with project
+                organization, deadline tracking, and team collaboration
+                features.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">Socket.io</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="#" class="project-link">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+<div class="project-card">
+            <img
+              src="img/Fresherday-2019-6-1-600x400.jpg"
+              alt="E-commerce Website"
+              class="project-image"
+              style="object-fit: cover"
+            />
+            <div class="project-content">
+              <h3 class="project-title">College Event Management System</h3>
+              <p class="project-description">
+                A MERN stack web app for college events. Users sign up, create
+                events, and browse listings. Authenticated users can book
+                tickets for events. It streamlines campus event discovery,
+                registration, and management, serving as a central platform for
+                student engagement.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">React JS</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">Node JS</span>
+                <span class="tech-tag">Express JS</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://github.com/Janardhannaik/College-Event-Management-System"
+                  class="project-link"
+                  target="_blank"
+                >
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+                <a
+                  href="https://github.com/Janardhannaik/College-Event-Management-System"
+                  class="project-link"
+                  target="_blank"
+                >
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+
+
+      </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="section">
+      <div class="container">
+        <h2 class="section-title">Certificates</h2>
+        <p class="section-subtitle">
+          Professional certifications and achievements in web development
+        </p>
+
+        <div class="certificates-grid">
+          <div class="certificate-card">
+            <div class="certificate-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <h3 class="certificate-title">Introduction to MERN Stack</h3>
+            <div class="certificate-issuer">Simplilearn</div>
+            <div class="certificate-date">2025</div>
+            <a href="https://simpli-web.app.link/e/MohkGMc0PWb" class="redirect-button">View Certificate</a>
+              
+          </div>
+
+          <div class="certificate-card">
+            <div class="certificate-icon">
+              <i class="fab fa-react"></i>
+            </div>
+            <h3 class="certificate-title">Introduction to HTML</h3>
+            <div class="certificate-issuer">Simplilearn</div>
+            <div class="certificate-date">2024</div>
+            <a href="https://simpli-web.app.link/e/gF9kwQ40PWb" class="redirect-button">View Certificate</a>
     
-    <script src="script.js"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+          
+          </div>
+
+          <div class="certificate-card">
+            <div class="certificate-icon">
+              <i class="fab fa-js-square"></i>
+            </div>
+            <h3 class="certificate-title">Introduction to Front End Development</h3>
+            <div class="certificate-issuer">Simplileran</div>
+            <div class="certificate-date">2024</div>
+            <a href="https://simpli-web.app.link/e/7B5JJya1PWb" class="redirect-button">View Certificate</a>
+          </div>
+
+          <div class="certificate-card">
+            <div class="certificate-icon">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <h3 class="certificate-title">Master AI for Web App Development</h3>
+            <div class="certificate-issuer">Simplilearn</div>
+            <div class="certificate-date">2025</div>
+                        <a href="https://simpli-web.app.link/e/Ls2xT2m1PWb" class="redirect-button">View Certificate</a>
+
+          </div>
+
+          <div class="certificate-card">
+            <div class="certificate-icon">
+              <i class="fab fa-node-js"></i>
+            </div>
+            <h3 class="certificate-title">Introduction to Prompt Engineering with GitHub Copilot</h3>
+            <div class="certificate-issuer">Simplilearn</div>
+            <div class="certificate-date">2025</div>
+                        <a href="https://simpli-web.app.link/e/3Jmrmct1PWb" class="redirect-button">View Certificate</a>
+          </div>
+
+          <div class="certificate-card">
+            <div class="certificate-icon">
+              <i class="fas fa-database"></i>
+            </div>
+            <h3 class="certificate-title">MongoDB Certification</h3>
+            <div class="certificate-issuer">MongoDB University</div>
+            <div class="certificate-date">2024</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Get in Touch Section -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title">Bringing your ideas to life.</h2>
+        <h3
+          style="
+            text-align: center;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 20px;
+          "
+        >
+          Let's turn your vision into reality
+        </h3>
+        <p class="section-subtitle">
+          Have a project in mind or just want to chat? Let's connect!
+        </p>
+
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value">
+              <a href="mailto:naikjanardhan568@gmail.com"
+                >naikjanardhan568@gmail.com</a
+              >
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fab fa-linkedin"></i>
+            </div>
+            <div class="contact-label">LinkedIn</div>
+            <div class="contact-value">
+              <a href="https://www.linkedin.com" target="_blank"
+                >Connect with me</a
+              >
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fab fa-whatsapp"></i>
+            </div>
+            <div class="contact-label">WhatsApp</div>
+            <div class="contact-value">
+              <a href="https://wa.me/" target="_blank">Message me</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <h3
+            style="
+              text-align: center;
+              color: #ffffff;
+              margin-bottom: 30px;
+              font-size: 1.5rem;
+            "
+          >
+            Send Message
+          </h3>
+          <form>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your Name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="contact@example.com"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Your message here..."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+              <i class="fas fa-paper-plane" style="margin-right: 10px"></i>Send
+              Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      style="
+        background: rgba(0, 0, 0, 0.5);
+        padding: 40px 0;
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      "
+    >
+      <div class="container">
+        <div style="margin-bottom: 30px">
+          <ul
+            style="
+              display: flex;
+              justify-content: center;
+              list-style: none;
+              gap: 30px;
+              flex-wrap: wrap;
+            "
+          >
+            <li>
+              <a
+                href="#home"
+                style="
+                  color: #b8b8b8;
+                  text-decoration: none;
+                  transition: color 0.3s ease;
+                "
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="#experience"
+                style="
+                  color: #b8b8b8;
+                  text-decoration: none;
+                  transition: color 0.3s ease;
+                "
+                >Experience</a
+              >
+            </li>
+            <li>
+              <a
+                href="#projects"
+                style="
+                  color: #b8b8b8;
+                  text-decoration: none;
+                  transition: color 0.3s ease;
+                "
+                >Projects</a
+              >
+            </li>
+            <li>
+              <a
+                href="#certificates"
+                style="
+                  color: #b8b8b8;
+                  text-decoration: none;
+                  transition: color 0.3s ease;
+                "
+                >Certificates</a
+              >
+            </li>
+            <li>
+              <a
+                href="#contact"
+                style="
+                  color: #b8b8b8;
+                  text-decoration: none;
+                  transition: color 0.3s ease;
+                "
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+          "
+        >
+          <a href="https://github.com/Janardhannaik/" class="social-link" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://linkedin.com/" class="social-link" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://twitter.com/" class="social-link" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://dribbble.com/" class="social-link" target="_blank">
+            <i class="fab fa-dribbble"></i>
+          </a>
+        </div>
+
+        <div
+          style="
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+          "
+        >
+          <p style="color: #b8b8b8; margin: 0">
+            <span style="color: #ffffff; font-weight: 600">Janardhan Naik</span>
+            - Based in Karnataka
+          </p>
+          <p style="color: #666; margin: 10px 0 0 0; font-size: 0.9rem">
+            Website Designed in Figma. Built with Next.js, TypeScript and
+            Tailwind CSS.
+          </p>
+          <p style="color: #666; margin: 10px 0 0 0; font-size: 0.9rem">
+            © 2025 Janardhan Naik. All rights are reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
     <script>
-      AOS.init();
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Add scroll effect to navigation
+      window.addEventListener("scroll", () => {
+        const nav = document.querySelector("nav");
+        if (window.scrollY > 50) {
+          nav.style.background = "rgba(10, 10, 10, 0.98)";
+          nav.style.backdropFilter = "blur(20px)";
+        } else {
+          nav.style.background = "rgba(10, 10, 10, 0.95)";
+          nav.style.backdropFilter = "blur(10px)";
+        }
+      });
+
+      // Form submission
+      document.querySelector("form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        alert("Message sent successfully! I will get back to you soon.");
+        this.reset();
+      });
+
+      // Animate timeline items on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".timeline-item").forEach((item) => {
+        observer.observe(item);
+      });
     </script>
-</body>
+  </body>
 </html>
